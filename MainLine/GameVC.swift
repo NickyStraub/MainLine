@@ -1,13 +1,16 @@
 //
-//  ContentView.swift
+//  GameVC.swift
 //  MainLine
 //
-//  Created by Nicholas Straub on 9/9/22.
+//  Created by Nicholas Straub on 10/25/22.
 //
 
 import SwiftUI
 
-struct ContentView: View {
+struct GameVC: View {
+    
+    @StateObject var viewModel = GameViewModel()
+    
     var body: some View {
         VStack {
             ZStack {
@@ -16,7 +19,7 @@ struct ContentView: View {
             }
             .edgesIgnoringSafeArea(.all)
             Button {
-//                DatabaseManager().getOpening(openingName: "LondonSystem")
+                viewModel.getOpening(name: "London System")
             } label: {
                 Text("Test API")
             }
@@ -24,8 +27,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct GameVC_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        GameVC()
     }
 }
